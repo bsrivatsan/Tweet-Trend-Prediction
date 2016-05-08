@@ -1,0 +1,7 @@
+Preliminary Project Proposal [Revised]
+
+Bharath Srivatsan '18 and Kelly Zhou '17
+
+Project: Twitter Early Trend Prediction Engine
+
+For this project, we plan on creating a Python-based application that has two main functions. First, it will crawl a large sample of real-time tweets to predict popular hashtags/topics before they appear on Twitter's trending list. Second, it will utilize past tweets to recommend topics from this pre-trending list that are relevant to a given user's interests. With these two tools, we expect that users will be able to maximize their chances of gaining visibility by engaging with discussions before they come to worldwide prominence on the trends list.
