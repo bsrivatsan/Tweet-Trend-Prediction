@@ -14,8 +14,7 @@ if __name__ == '__main__':
 	user = 'b_srivatsan'
 	wordList = {}
 
-	#statuses = api.user_timeline(user)
-	statuses = api.home_timeline()
+	statuses = api.user_timeline(user)
 	for status in statuses:	
 		text = status.text.split()
 		for word in text:
@@ -30,4 +29,13 @@ if __name__ == '__main__':
 	userTweets = open('Data/userTweets.txt',"w")
 	json.dump(sorted(wordList.items(), key=lambda x:x[1], reverse=True), userTweets)
 	userTweets.close()
-	print 'There are', len(wordList), 'words'
+	print 'There are', len(wordList), 'words the user has tweeted'
+
+	count = 0
+	highWords = open('Data/recommend.txt').read()
+	for word in highWords:
+		if count > 3:
+			break
+		if word in wordList:
+			print word
+			count += 1

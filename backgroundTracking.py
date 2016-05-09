@@ -1,14 +1,17 @@
 import json
 
-countData = 1
-countSample = 1
+countData = 10
+countSample = 2
 tweets_data_path = 'Data/tweetStream100k'
 
 data = {}
 
 i = 1
 while i <= countData:
-	day = open(tweets_data_path+'0'+i+'.txt',"r")
+	if i < 10:
+		day = open(tweets_data_path+'0'+i+'.txt',"r")
+	else:
+		day = open(tweets_data_path+i+'.txt',"r")
 	dayData = json.load(day)
 	for word in dayData:
 		if word in data:
@@ -18,9 +21,9 @@ while i <= countData:
 	day.close()
 	i+=1
 
-sample = open('Data/tweetStream100kSample.txt',"r")
-testData = json.load(sample)
-sample.close()
+testData = open('Data/tweetStreamSampleWords.txt',"r")
+sample = json.load(testData)
+testData.close()
 
 for word in sample:
 	if sample[word] < 500:
@@ -33,10 +36,10 @@ for word in sample:
 			#Negative difference words cannot be trending
 			sample[word] = (diff * diff * diff)/dataSize
 		else:
-			diff = sample[word] - 100
-			sample[word] = (diff*diff*diff)/100
+			diff = sample[word] - 50
+			sample[word] = (diff*diff*diff)/50
 
 backgroundTrack = open(tweets_data_path+'backgroundTrack.txt',"w")
-json.dump(sorted(data.items(), key=lambda x:x[1], reverse=True), backgroundTrack)
+json.dump(sorted(sample.items(), key=lambda x:x[1], reverse=True), backgroundTrack)
 backgroundTrack.close()
 print 'There are', len(data), 'words'

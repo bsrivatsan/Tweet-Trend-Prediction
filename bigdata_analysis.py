@@ -3,7 +3,7 @@ import json
 import string
 import re
 
-tweets_data_path = 'Data/tweetStream100k01'
+tweets_data_path = 'Data/tweetStream'
 
 hashtagList = {}
 wordList = {}
