@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #This code implements the last algorithm by tracking changes in word usage
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import json
 import string
 import re
@@ -21,6 +22,7 @@ scratchText = open('scratchWords.txt').read()
 
 #5 repeated code sections to add all of the frequency counts to the respective dictionaries
 
+#Uses http://stackoverflow.com/questions/16129652/accessing-json-elements
 for line in tweets_file1:
     try:
         tweet = json.loads(line.strip())
@@ -28,6 +30,7 @@ for line in tweets_file1:
 	text = tweet['text'].split()
 	for word in text:
 		#Parsing words to strip all punctuation and convert to lower case
+		#From https://www.quora.com/How-do-I-remove-punctuation-from-a-Python-string
 		parsed = ''.join(c for c in word if c not in string.punctuation)
 		parsed = parsed.lower()
 		if parsed not in scratchText:
@@ -165,6 +168,7 @@ for key in wordList5.keys():
 print 'There are', counter/2, 'tweets'
 
 #Storage into data
+#Uses http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
 words = open(tweets_data_path+'GrowthWords.txt',"w")
 json.dump(sorted(growthSort.items(), key=lambda x:x[1], reverse=True), words)
 words.close()

@@ -1,3 +1,5 @@
+#Quick test of the streaming API
+#Based on this tutorial: http://adilmoujahid.com/posts/2014/07/twitter-analytics/
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream

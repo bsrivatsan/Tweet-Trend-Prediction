@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #This code performs the method 3 algorithm by weighting the terms used in authority figure tweets
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import json
 import string
 import re
@@ -35,6 +36,7 @@ for line in tweets_file:
 	text = tweet['text'].split()
 	for word in text:
 		#Parse each word by stripping punctuation and lower-casing
+		#From https://www.quora.com/How-do-I-remove-punctuation-from-a-Python-string
 		parsed = ''.join(c for c in word if c not in string.punctuation)
 		parsed = parsed.lower()
 		if parsed not in scratchText:
@@ -151,6 +153,7 @@ for key,value in wordList.items():
 		score *= delta
 	mixedList[key] = score
 
+#From http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
 authorityWords = open(tweets_data_path+'AuthorityWords.txt',"w")
 json.dump(sorted(mixedList.items(), key=lambda x:x[1], reverse=True), authorityWords)
 authorityWords.close()

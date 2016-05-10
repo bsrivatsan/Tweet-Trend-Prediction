@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 #This code implements the recommendation system of our project
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import tweepy
 import string
 import json
@@ -23,6 +24,7 @@ if __name__ == '__main__':
 	for status in statuses:	
 		text = status.text.split()
 		for word in text:
+			#From https://www.quora.com/How-do-I-remove-punctuation-from-a-Python-string
 			parsed = ''.join(c for c in word if c not in string.punctuation)
 			parsed = parsed.lower()	
 			if parsed not in scratchText:
@@ -31,6 +33,7 @@ if __name__ == '__main__':
 				else:
 					wordList[parsed] = 1
 
+	#Uses http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
 	userTweets = open('../Project/Data/userTweets.txt',"w")
 	json.dump(sorted(wordList.items(), key=lambda x:x[1], reverse=True), userTweets)
 	userTweets.close()

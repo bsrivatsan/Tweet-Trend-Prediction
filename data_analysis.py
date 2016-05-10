@@ -1,3 +1,6 @@
+#Old code to count hashtags and data, prints countries that tweets are from.
+#Based on this tutorial: http://adilmoujahid.com/posts/2014/07/twitter-analytics/
+#Retired because the code was too heavy
 import json
 import pandas as pd
 import matplotlib.pyplot as plt

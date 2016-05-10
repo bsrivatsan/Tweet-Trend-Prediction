@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 
 #This code uses the Tweepy Streaming API to collect tweets
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import tweepy
 
 #Number of tweets to collect
 numTweets = 200000
 
 #Basic listener that prints tweets to stdout, piped by user into data file
+#Based on http://adilmoujahid.com/posts/2014/07/twitter-analytics/, https://pythonprogramming.net/twitter-api-streaming-tweets-python-tutorial/
 class StdOutListener(tweepy.StreamListener):
 
     def __init__(self, api=None):
         super(StdOutListener, self).__init__()
         self.num_tweets = 0
 
+    #Based on http://stackoverflow.com/questions/20863486/tweepy-streaming-stop-collecting-tweets-at-x-amount
     def on_data(self, data):
         print data
         self.num_tweets += 1

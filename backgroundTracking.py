@@ -2,6 +2,7 @@
 
 #This code implements method 4 by comparing the frequencies of terms in a sample
 #to frequencies in a historical corpus
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import json
 import string
 import re
@@ -23,6 +24,7 @@ scratchText = open('scratchWords.txt').read()
 #unfortunately broke down and kept throwing Indentation and Syntax errors
 tweets_file1 = open(tweets_data_path+'01.txt', "r")
 
+#Uses http://stackoverflow.com/questions/16129652/accessing-json-elements
 for line in tweets_file1:
     try:
         tweet = json.loads(line.strip())
@@ -30,6 +32,7 @@ for line in tweets_file1:
 	text = tweet['text'].split()
 	for word in text:
 		#Parsing words to strip all punctuation and convert to lower case
+		#From https://www.quora.com/How-do-I-remove-punctuation-from-a-Python-string
 		parsed = ''.join(c for c in word if c not in string.punctuation)
 		parsed = parsed.lower()
 		if parsed not in scratchText:
@@ -318,6 +321,7 @@ for word in sample:
 			diff = (sample[word] - 50)/50
 			sample[word] = (diff*diff*diff)
 
+#Uses http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
 backgroundTrack = open(tweets_data_path+'backgroundTrack.txt',"w")
 json.dump(sorted(sample.items(), key=lambda x:x[1], reverse=True), backgroundTrack)
 backgroundTrack.close()

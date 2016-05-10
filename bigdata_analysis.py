@@ -2,6 +2,7 @@
 
 #This code implements the first two methods for prediction- a word frequency 
 #and hashtag frequency counter
+#Uses http://stackoverflow.com/questions/14630288/unicodeencodeerror-charmap-codec-cant-encode-character-maps-to-undefined
 import json
 import string
 import re
@@ -16,6 +17,7 @@ tweets_file = open(tweets_data_path+'.txt', "r")
 #This file includes stop words, Twitter-related words, and inappropriate words
 scratchText = open('scratchWords.txt').read()	
 
+#Uses http://stackoverflow.com/questions/16129652/accessing-json-elements
 for line in tweets_file:
     try:
         tweet = json.loads(line.strip())
@@ -31,6 +33,7 @@ for line in tweets_file:
 	text = tweet['text'].split()
 	for word in text:
 		#Parsing words to strip all punctuation and convert to lower case
+		#From https://www.quora.com/How-do-I-remove-punctuation-from-a-Python-string
 		parsed = ''.join(c for c in word if c not in string.punctuation)
 		parsed = parsed.lower()
 		if parsed not in scratchText:
@@ -46,6 +49,7 @@ for line in tweets_file:
 print 'There are', counter/2, 'tweets'
 
 #Storage into data
+#Uses http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
 words = open(tweets_data_path+'Words.txt',"w")
 json.dump(sorted(wordList.items(), key=lambda x:x[1], reverse=True), words)
 words.close()

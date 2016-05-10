@@ -1,3 +1,5 @@
+#First test of Tweepy API
+#Based on http://docs.tweepy.org/en/v3.5.0/api.html
 import tweepy
 import requests
 
