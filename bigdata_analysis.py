@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-#This code implements the first two methods - a word frequency and hashtag frequency counter
+#This code implements the first two methods for prediction- a word frequency 
+#and hashtag frequency counter
 import json
 import string
 import re

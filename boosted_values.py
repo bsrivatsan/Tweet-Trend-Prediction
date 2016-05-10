@@ -19,6 +19,8 @@ tweets_file1 = open(tweets_data_path+'06.txt', "r")
 #This file includes stop words, Twitter-related words, and inappropriate words
 scratchText = open('scratchWords.txt').read()	
 
+#5 repeated code sections to add all of the frequency counts to the respective dictionaries
+
 for line in tweets_file1:
     try:
         tweet = json.loads(line.strip())
@@ -134,6 +136,7 @@ print 'Completed File 5'
 
 tweets_file5.close()
 
+#Computes the score of each of the terms using our algorithm
 growthSort = {}
 
 for key in wordList5.keys():

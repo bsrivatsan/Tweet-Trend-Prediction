@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+
+#This code uses the Tweepy Streaming API to collect tweets
 import tweepy
 
+#Number of tweets to collect
 numTweets = 200000
 
 #Basic listener that prints tweets to stdout, piped by user into data file
