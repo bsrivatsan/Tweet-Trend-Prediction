@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import tweepy
 
-numTweets = 100000
+numTweets = 200000
 
 #Basic listener that prints tweets to stdout, piped by user into data file
 class StdOutListener(tweepy.StreamListener):

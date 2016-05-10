@@ -26,13 +26,13 @@ if __name__ == '__main__':
 				else:
 					wordList[parsed] = 1
 
-	userTweets = open('Data/userTweets.txt',"w")
+	userTweets = open('../Project/Data/userTweets.txt',"w")
 	json.dump(sorted(wordList.items(), key=lambda x:x[1], reverse=True), userTweets)
 	userTweets.close()
 	print 'There are', len(wordList), 'words the user has tweeted'
 
 	count = 0
-	highWords = open('Data/recommend.txt').read()
+	highWords = open('../Project/Data/recommend.txt').read()
 	for word in highWords:
 		if count > 3:
 			break
