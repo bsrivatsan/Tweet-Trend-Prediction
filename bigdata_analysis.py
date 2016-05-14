@@ -7,7 +7,7 @@ import json
 import string
 import re
 
-tweets_data_path = '../Project/Data/tweetStream200kSample'
+tweets_data_path = '../Project/Data/tweetStream100kDemo'
 
 hashtagList = {}
 wordList = {}

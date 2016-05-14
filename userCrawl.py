@@ -16,7 +16,7 @@ if __name__ == '__main__':
 	api = tweepy.API(auth)
 
 	#Sample case - search for recommendations for Bharath
-	user = 'b_srivatsan'
+	user = 'EdFelten'
 	wordList = {}
 
 	#Obtain statuses of user and friends
@@ -34,17 +34,20 @@ if __name__ == '__main__':
 					wordList[parsed] = 1
 
 	#Uses http://stackoverflow.com/questions/16772071/sort-dict-by-value-python
-	userTweets = open('../Project/Data/userTweets.txt',"w")
+	userTweets = open('../Project/Data/' +user + 'Tweets.txt',"w")
 	json.dump(sorted(wordList.items(), key=lambda x:x[1], reverse=True), userTweets)
 	userTweets.close()
 	print 'There are', len(wordList), 'words the user has tweeted'
 
 	#Return recommendations
 	count = 0
-	highWords = open('../Project/Data/recommend.txt').read()
-	for word in highWords:
+	highWords = open('../Project/Data/recommend.txt','r')
+	words = highWords.readlines()
+	for num, word in enumerate(words,1):
 		if count > 5:
 			break
 		if word in wordList:
 			print word
 			count += 1
+
+	highWords.close()

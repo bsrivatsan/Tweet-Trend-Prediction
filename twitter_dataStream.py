@@ -5,7 +5,7 @@
 import tweepy
 
 #Number of tweets to collect
-numTweets = 200000
+numTweets = 100000
 
 #Basic listener that prints tweets to stdout, piped by user into data file
 #Based on http://adilmoujahid.com/posts/2014/07/twitter-analytics/, https://pythonprogramming.net/twitter-api-streaming-tweets-python-tutorial/
