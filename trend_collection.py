@@ -6,8 +6,6 @@ import time
 import json
 
 #Initialize the authentication with Tweepy's API wrapper
-oauth = tweepy.OAuthHandler("0h7jv4PcQC5OImXLGNivhmpPp", "qQEVbSDX3WSfxfSXxItXTdX5nZLrrE0YINNrLrTbQEekencQTY")
-oauth.set_access_token("701559036215431168-2Ln53aAlMZZUFL74hK3BlOCW2f7vEaO", "iUTgwVXYHcZwf3nq0Bpu98qpIQWMzLuQiScgWvpf19hFK")
 api = tweepy.API(oauth)
 
 trendsJson = open('../Project/Data/trendsJSON.txt',"a")
