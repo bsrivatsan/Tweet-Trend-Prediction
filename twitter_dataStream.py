@@ -35,8 +35,6 @@ if __name__ == '__main__':
 
     #This handles Twitter authetification and the connection to Twitter Streaming API
     listener = StdOutListener()
-    oauth = tweepy.OAuthHandler("0h7jv4PcQC5OImXLGNivhmpPp", "qQEVbSDX3WSfxfSXxItXTdX5nZLrrE0YINNrLrTbQEekencQTY")
-    oauth.set_access_token("701559036215431168-2Ln53aAlMZZUFL74hK3BlOCW2f7vEaO", "iUTgwVXYHcZwf3nq0Bpu98qpIQWMzLuQiScgWvpf19hFK")
     stream = tweepy.Stream(auth = oauth, listener=listener)
 
     #This line filters the stream to only include english tweets with #s
