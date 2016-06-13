@@ -11,8 +11,6 @@ if __name__ == '__main__':
 	scratchText = open('scratchWords.txt').read()	
 
 	#Authenticates our requests to the Twitter ervers
-	auth = tweepy.OAuthHandler("0h7jv4PcQC5OImXLGNivhmpPp", "qQEVbSDX3WSfxfSXxItXTdX5nZLrrE0YINNrLrTbQEekencQTY")
-	auth.set_access_token("701559036215431168-2Ln53aAlMZZUFL74hK3BlOCW2f7vEaO", "iUTgwVXYHcZwf3nq0Bpu98qpIQWMzLuQiScgWvpf19hFK")
 	api = tweepy.API(auth)
 
 	#Sample case - search for recommendations for Bharath
